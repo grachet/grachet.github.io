@@ -1,6 +1,7 @@
 /* Base */
 
 .awwwards{
+	display:none!important;
 	position: absolute;
 	top: 70px;
 	width: 90px;
