@@ -1,4 +1,4 @@
-let scene, camera, renderer, planet, plane, isLeaningUp = true;
+let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true;
 
 const speed = 1;
 const planeSpeedLeaning = 0.005;
@@ -61,10 +61,18 @@ function init() {
     document.body.appendChild(renderer.domElement);
     let loader = new THREE.GLTFLoader();
 
-    loader.load('models/planet.glb', function (gltf) {
+    loader.load('models/planetAlone.glb', function (gltf) {
         gltfScene = gltf.scene;
-        gltfScene.position.set(0, 0, 0);
-        planet = gltfScene
+        planet = gltfScene;
+
+        // console.log(gltfScene)
+        // car.scale.set(0.5, 0.5, 0.5);
+        scene.add(gltf.scene);
+    });
+
+    loader.load('models/clouds.glb', function (gltf) {
+        gltfScene = gltf.scene;
+        clouds = gltfScene;
 
         // console.log(gltfScene)
         // car.scale.set(0.5, 0.5, 0.5);
@@ -101,7 +109,10 @@ function init() {
             }
         }
         if (planet) {
-            // planet.rotation.x -= 0.0005
+            planet.rotation.x -= 0.0002
+        }
+        if (clouds) {
+            clouds.rotation.x -= 0.005
         }
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
