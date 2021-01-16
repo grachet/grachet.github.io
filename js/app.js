@@ -6,18 +6,10 @@ function init() {
     scene.background = new THREE.Color(0x222222);
 
     camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 5000);
-    // camera.rotation.y = 45 / 180 * Math.PI;
-    // camera.position.x = 7;
-    // camera.position.y = 10;
-    // camera.position.z = 10;
 
-
-    camera.position.x = -7.8587422370910645;
-    camera.position.y = 4.857544898986816;
-    camera.position.z = -16.959041595458984;
-    camera.rotation.x = 1.6317866451706384;
-    camera.rotation.y = -0.018295476787527132;
-    camera.rotation.z = 2.7127579845176455;
+    camera.position.x = 0;
+    camera.position.y = 0;
+    camera.position.z = 11;
 
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -37,6 +29,12 @@ function init() {
     // directionalLight.position.set(0, -1, 0);
     // directionalLight.castShadow = true;
     // scene.add(directionalLight);
+
+    // const geometry = new THREE.SphereGeometry(3.5, 32, 32);
+    // const material = new THREE.MeshBasicMaterial({ color: "red" });
+    // const sphere = new THREE.Mesh(geometry, material);
+    // sphere.position.set(0, 3.5, 0);
+    // scene.add(sphere);
 
     light = new THREE.PointLight(0xc4c4c4, 1);
     light.position.set(0, 300, 500);
@@ -60,6 +58,7 @@ function init() {
 
     loader.load('models/low-poly-planet.glb', function (gltf) {
         gltfScene = gltf.scene;
+        gltfScene.position.set(0, -3.5, 0);
 
         console.log(gltfScene)
         // car.scale.set(0.5, 0.5, 0.5);
