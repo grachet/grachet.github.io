@@ -1,6 +1,6 @@
 let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true;
 
-const speed = 1;
+const speed = 0.01;
 const planeSpeedLeaning = 0.005;
 const planeLeaningMin = 1.1;
 const planeLeaningMax = 1.4;
@@ -19,8 +19,8 @@ function init() {
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.addEventListener('change', renderer);
+    // controls = new THREE.OrbitControls(camera, renderer.domElement);
+    // controls.addEventListener('change', renderer);
 
     hlight = new THREE.AmbientLight(0x404040, 3);
     scene.add(hlight);
@@ -93,6 +93,22 @@ function init() {
         scene.add(gltf.scene);
     });
 
+    function onDocumentKeyDown(event) {
+        var keyName = event.key;
+        console.log(event)
+        if (keyName === "ArrowUp") {
+            planet.rotation.x += speed;
+        } else if (keyName === "ArrowDown") {
+            planet.rotation.x -= speed;
+        } else if (keyName === "ArrowLeft") {
+            planet.rotation.y += speed;
+        } else if (keyName === "ArrowRight") {
+            planet.rotation.y -= speed;
+        }
+    };
+
+    document.addEventListener("keydown", onDocumentKeyDown, false);
+
     function animate() {
         // console.log(planet)
         if (plane) {
@@ -108,12 +124,12 @@ function init() {
                 isLeaningUp = false
             }
         }
-        if (planet) {
-            planet.rotation.x -= 0.0002
-        }
-        if (clouds) {
-            clouds.rotation.x -= 0.005
-        }
+        // if (planet) {
+        //     planet.rotation.x -= 0.0002
+        // }
+        // if (clouds) {
+        //     clouds.rotation.x -= 0.005
+        // }
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
     }
