@@ -68,53 +68,44 @@ function init() {
     loader.load('models/planetAlone.glb', function (gltf) {
         gltfScene = gltf.scene;
         planet = gltfScene;
-
-        // console.log(gltfScene)
-        // car.scale.set(0.5, 0.5, 0.5);
         scene.add(gltf.scene);
     });
 
     loader.load('models/clouds.glb', function (gltf) {
         gltfScene = gltf.scene;
         clouds = gltfScene;
-
-        // console.log(gltfScene)
-        // car.scale.set(0.5, 0.5, 0.5);
         scene.add(gltf.scene);
     });
 
     loader.load('models/plane.glb', function (gltf) {
         gltfScene = gltf.scene;
-        console.log(gltfScene)
         plane = gltfScene.children[0]
-        console.log(plane)
 
         gltfScene.scale.set(0.1, 0.1, 0.1);
         gltfScene.position.set(0, 0, 3.8);
         gltfScene.rotation.set(-1.5, 0, 3.15);
 
-        // car.scale.set(0.5, 0.5, 0.5);
         scene.add(gltf.scene);
     });
 
     function onDocumentKeyDown(event) {
         var keyName = event.key;
-        console.log(event)
         if (keyName === "ArrowUp") {
             planet.rotation.x += speed;
-        } else if (keyName === "ArrowDown") {
-            planet.rotation.x -= speed;
-        } else if (keyName === "ArrowLeft") {
-            planet.rotation.z -= speed;
+        }
+        // else if (keyName === "ArrowDown") {
+        //     planet.rotation.x -= speed;
+        // }
+        else if (keyName === "ArrowLeft") {
+            planet.rotation.y += speed;
         } else if (keyName === "ArrowRight") {
-            planet.rotation.z += speed;
+            planet.rotation.y -= speed;
         }
     };
 
     document.addEventListener("keydown", onDocumentKeyDown, false);
 
     function animate() {
-        // console.log(planet)
         if (plane) {
             if (isLeaningRight) {
                 plane.rotation.y += planeSpeedLeaningY
@@ -149,7 +140,6 @@ function init() {
     }
 
     animate();
-
 }
 
 init();
