@@ -1,4 +1,4 @@
-let scene, camera, renderer;
+let scene, camera, renderer, planet, plane;
 
 function init() {
 
@@ -56,11 +56,25 @@ function init() {
     document.body.appendChild(renderer.domElement);
     let loader = new THREE.GLTFLoader();
 
-    loader.load('models/low-poly-planet.glb', function (gltf) {
+    loader.load('models/planet.glb', function (gltf) {
         gltfScene = gltf.scene;
         gltfScene.position.set(0, -3.5, 0);
 
+        // console.log(gltfScene)
+        // car.scale.set(0.5, 0.5, 0.5);
+        scene.add(gltf.scene);
+        animate();
+    });
+
+    loader.load('models/plane.glb', function (gltf) {
+        gltfScene = gltf.scene;
         console.log(gltfScene)
+        plane = gltfScene.children[0]
+        console.log(plane)
+
+        gltfScene.scale.set(0.1, 0.1, 0.1);
+        gltfScene.position.set(0, 3.8, 0);
+
         // car.scale.set(0.5, 0.5, 0.5);
         scene.add(gltf.scene);
         animate();
