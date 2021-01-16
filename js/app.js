@@ -23,8 +23,13 @@ function init() {
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // controls = new THREE.OrbitControls(camera, renderer.domElement);
-    // controls.addEventListener('change', renderer);
+
+    /////////////////////
+    // const axesHelper = new THREE.AxesHelper(5);
+    // scene.add(axesHelper);
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.addEventListener('change', renderer);
+    ///////////////////
 
     hlight = new THREE.AmbientLight(0x404040, 3);
     scene.add(hlight);
@@ -38,12 +43,6 @@ function init() {
     // directionalLight.position.set(0, -1, 0);
     // directionalLight.castShadow = true;
     // scene.add(directionalLight);
-
-    // const geometry = new THREE.SphereGeometry(3.5, 32, 32);
-    // const material = new THREE.MeshBasicMaterial({ color: "red" });
-    // const sphere = new THREE.Mesh(geometry, material);
-    // sphere.position.set(0, 3.5, 0);
-    // scene.add(sphere);
 
     light = new THREE.PointLight(0xc4c4c4, 1);
     light.position.set(0, 300, 500);
@@ -68,12 +67,20 @@ function init() {
     loader.load('models/planetAlone.glb', function (gltf) {
         gltfScene = gltf.scene;
         planet = gltfScene;
+
+        // const axesHelper = new THREE.AxesHelper(5);
+        // planet.add(axesHelper);
+
         scene.add(gltf.scene);
     });
 
     loader.load('models/clouds.glb', function (gltf) {
         gltfScene = gltf.scene;
         clouds = gltfScene;
+
+        const axesHelper = new THREE.AxesHelper(5);
+        clouds.add(axesHelper);
+
         scene.add(gltf.scene);
     });
 
@@ -89,17 +96,22 @@ function init() {
     });
 
     function onDocumentKeyDown(event) {
+        console.log(planet)
         var keyName = event.key;
         if (keyName === "ArrowUp") {
             planet.rotation.x += speed;
+            plane.rotation.z = 0;
         }
-        // else if (keyName === "ArrowDown") {
-        //     planet.rotation.x -= speed;
-        // }
+        else if (keyName === "ArrowDown") {
+            planet.rotation.x -= speed;
+            plane.rotation.z = 3.15;
+        }
         else if (keyName === "ArrowLeft") {
             planet.rotation.y += speed;
+            plane.rotation.z = 4.725;
         } else if (keyName === "ArrowRight") {
             planet.rotation.y -= speed;
+            plane.rotation.z = 1.575;
         }
     };
 
@@ -112,9 +124,9 @@ function init() {
             } else {
                 plane.rotation.y -= planeSpeedLeaningY
             }
-            if (plane.rotation._y < planeLeaningYMin) {
+            if (plane.rotation.y < planeLeaningYMin) {
                 isLeaningRight = true
-            } else if (plane.rotation._y > planeLeaningYMax) {
+            } else if (plane.rotation.y > planeLeaningYMax) {
                 isLeaningRight = false
             }
 
@@ -123,18 +135,18 @@ function init() {
             } else {
                 plane.rotation.x -= planeSpeedLeaningX
             }
-            if (plane.rotation._x < planeLeaningXMin) {
+            if (plane.rotation.x < planeLeaningXMin) {
                 isLeaningUp = true
-            } else if (plane.rotation._x > planeLeaningXMax) {
+            } else if (plane.rotation.x > planeLeaningXMax) {
                 isLeaningUp = false
             }
         }
-        if (planet) {
-            planet.rotation.x -= 0.0002
-        }
-        if (clouds) {
-            clouds.rotation.x -= 0.005
-        }
+        // if (planet) {
+        //     planet.rotation.x -= 0.0002
+        // }
+        // if (clouds) {
+        //     clouds.rotation.x -= 0.005
+        // }
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
     }
