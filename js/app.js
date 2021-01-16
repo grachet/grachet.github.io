@@ -1,9 +1,13 @@
-let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true;
+let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true, isLeaningRight = false;
 
-const speed = 0.01;
-const planeSpeedLeaning = 0.005;
-const planeLeaningMin = 1.1;
-const planeLeaningMax = 1.4;
+const speed = 0.03;
+const planeSpeedLeaningX = 0.002;
+const planeLeaningXMin = 1.1;
+const planeLeaningXMax = 1.4;
+
+const planeSpeedLeaningY = 0.002;
+const planeLeaningYMin = -0.2;
+const planeLeaningYMax = 0.2;
 
 function init() {
 
@@ -101,9 +105,9 @@ function init() {
         } else if (keyName === "ArrowDown") {
             planet.rotation.x -= speed;
         } else if (keyName === "ArrowLeft") {
-            planet.rotation.y += speed;
+            planet.rotation.z -= speed;
         } else if (keyName === "ArrowRight") {
-            planet.rotation.y -= speed;
+            planet.rotation.z += speed;
         }
     };
 
@@ -112,24 +116,34 @@ function init() {
     function animate() {
         // console.log(planet)
         if (plane) {
+            if (isLeaningRight) {
+                plane.rotation.y += planeSpeedLeaningY
+            } else {
+                plane.rotation.y -= planeSpeedLeaningY
+            }
+            if (plane.rotation._y < planeLeaningYMin) {
+                isLeaningRight = true
+            } else if (plane.rotation._y > planeLeaningYMax) {
+                isLeaningRight = false
+            }
 
             if (isLeaningUp) {
-                plane.rotation.x += planeSpeedLeaning
+                plane.rotation.x += planeSpeedLeaningX
             } else {
-                plane.rotation.x -= planeSpeedLeaning
+                plane.rotation.x -= planeSpeedLeaningX
             }
-            if (plane.rotation._x < planeLeaningMin) {
+            if (plane.rotation._x < planeLeaningXMin) {
                 isLeaningUp = true
-            } else if (plane.rotation._x > planeLeaningMax) {
+            } else if (plane.rotation._x > planeLeaningXMax) {
                 isLeaningUp = false
             }
         }
-        // if (planet) {
-        //     planet.rotation.x -= 0.0002
-        // }
-        // if (clouds) {
-        //     clouds.rotation.x -= 0.005
-        // }
+        if (planet) {
+            planet.rotation.x -= 0.0002
+        }
+        if (clouds) {
+            clouds.rotation.x -= 0.005
+        }
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
     }

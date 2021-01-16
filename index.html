@@ -26,8 +26,15 @@
         }
     </style>
 </head>
+<audio loop autoplay id="planeSound">
+    <source src="/models/soundPlane.wav" type="audio/wav">
+</audio>
 
 <body>
+    <script>
+        var audio = document.getElementById("planeSound");
+        audio.volume = 0.1;
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
     <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
     <script src="https://threejs.org/examples/js/loaders/GLTFLoader.js"></script>
