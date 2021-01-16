@@ -1,4 +1,9 @@
-let scene, camera, renderer, planet, plane;
+let scene, camera, renderer, planet, plane, isLeaningUp = true;
+
+const speed = 1;
+const planeSpeedLeaning = 0.005;
+const planeLeaningMin = 1.1;
+const planeLeaningMax = 1.4;
 
 function init() {
 
@@ -58,12 +63,12 @@ function init() {
 
     loader.load('models/planet.glb', function (gltf) {
         gltfScene = gltf.scene;
-        gltfScene.position.set(0, -3.5, 0);
+        gltfScene.position.set(0, 0, 0);
+        planet = gltfScene
 
         // console.log(gltfScene)
         // car.scale.set(0.5, 0.5, 0.5);
         scene.add(gltf.scene);
-        animate();
     });
 
     loader.load('models/plane.glb', function (gltf) {
@@ -73,17 +78,37 @@ function init() {
         console.log(plane)
 
         gltfScene.scale.set(0.1, 0.1, 0.1);
-        gltfScene.position.set(0, 3.8, 0);
+        gltfScene.position.set(0, 0, 3.8);
+        gltfScene.rotation.set(-1.5, 0, 3.15);
 
         // car.scale.set(0.5, 0.5, 0.5);
         scene.add(gltf.scene);
-        animate();
     });
-}
 
-function animate() {
-    renderer.render(scene, camera);
-    requestAnimationFrame(animate);
+    function animate() {
+        // console.log(planet)
+        if (plane) {
+
+            if (isLeaningUp) {
+                plane.rotation.x += planeSpeedLeaning
+            } else {
+                plane.rotation.x -= planeSpeedLeaning
+            }
+            if (plane.rotation._x < planeLeaningMin) {
+                isLeaningUp = true
+            } else if (plane.rotation._x > planeLeaningMax) {
+                isLeaningUp = false
+            }
+        }
+        if (planet) {
+            // planet.rotation.x -= 0.0005
+        }
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
 }
 
 init();
