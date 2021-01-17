@@ -9,6 +9,7 @@ let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true,
 
 const speedOneDirection = 0.025;
 const speedTwoDirection = 0.020;
+const planeTurnSpeed = 0.080;
 
 const planeSpeedLeaningX = 0.002;
 const planeLeaningXMin = Math.PI / 2 - 0.2;
@@ -130,7 +131,9 @@ function init() {
         let nbDirections = Object.values(keyState).filter(Boolean).length;
         speed = nbDirections === 1 ? speedOneDirection : speedTwoDirection
 
-        planeDirection = 0
+        if (nbDirections) {
+            planeDirection = 0
+        }
 
         if (keyState.ArrowUp) {
             planet.rotation.x += speed;
@@ -157,10 +160,19 @@ function init() {
             planeDirection += Math.PI / 2;
         }
 
-        if (nbDirections) {
-            console.log(planeDirection)
-            plane.rotation.z = planeDirection / nbDirections
+        planeDirection = nbDirections ? planeDirection / nbDirections : planeDirection;
+
+        console.log(plane.rotation.z, planeDirection)
+
+        toRight = plane.rotation.z < planeDirection;
+
+        if (toRight && plane.rotation.z < planeDirection) {
+            plane.rotation.z += planeTurnSpeed
+
+        } else if (!toRight && plane.rotation.z > planeDirection) {
+            plane.rotation.z -= planeTurnSpeed
         }
+
     };
 
 
@@ -200,6 +212,14 @@ function init() {
             }
             if (planet.rotation.x < -2 * Math.PI) {
                 planet.rotation.x = 0
+            }
+            ///////////////
+            /////////////// remove plane full rotation
+            if (plane.rotation.z > 2 * Math.PI) {
+                plane.rotation.z = 0
+            }
+            if (plane.rotation.z < -2 * Math.PI) {
+                plane.rotation.z = 0
             }
             ///////////////
             onKey()
