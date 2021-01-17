@@ -105,11 +105,11 @@ function init() {
         newText = displayText(planet.rotation.x, planet.rotation.y);
 
         if (text !== newText && !!newText) {
-            console.log("new text")
             panel.style.display = "block"
             text = newText;
             panel.innerHTML = newText;
         } else if (!newText) {
+            text = undefined;
             panel.style.display = "none"
         }
 
