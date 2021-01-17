@@ -1,4 +1,6 @@
-let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true, isLeaningRight = false, reversedPlanet = false, keyState = {}, speed;
+let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true,
+    isLeaningRight = false, reversedPlanet = false, keyState = {},
+    speed, planeDirection = 0;
 
 // const ArrowUp = 38;
 // const ArrowDown = 40;
@@ -125,11 +127,11 @@ function init() {
 
         if (keyState.ArrowUp) {
             planet.rotation.x += speed;
-            plane.rotation.z = 0;
+            planeDirection = 0;
         }
         if (keyState.ArrowDown) {
             planet.rotation.x -= speed;
-            plane.rotation.z = Math.PI;
+            planeDirection = Math.PI;
         }
         if (keyState.ArrowLeft) {
             if (reversedPlanet) {
@@ -137,7 +139,7 @@ function init() {
             } else {
                 planet.rotation.y += speed;
             }
-            plane.rotation.z = Math.PI * 3 / 2;
+            planeDirection = Math.PI * 3 / 2;
         }
         if (keyState.ArrowRight) {
             if (reversedPlanet) {
@@ -145,15 +147,19 @@ function init() {
             } else {
                 planet.rotation.y -= speed;
             }
-            plane.rotation.z = Math.PI / 2;
+            planeDirection = Math.PI / 2;
         }
+
+        plane.rotation.z = planeDirection
     };
 
 
     function animate() {
 
-        /////// Auto Move
-        if (plane) {
+        /////// Auto Move 
+        if (planet && plane) {
+
+            /////////////// plane leaning
             if (isLeaningRight) {
                 plane.rotation.y += planeSpeedLeaningY
             } else {
@@ -164,7 +170,6 @@ function init() {
             } else if (plane.rotation.y > planeLeaningYMax) {
                 isLeaningRight = false
             }
-
             if (isLeaningUp) {
                 plane.rotation.x += planeSpeedLeaningX
             } else {
@@ -175,9 +180,10 @@ function init() {
             } else if (plane.rotation.x > planeLeaningXMax) {
                 isLeaningUp = false
             }
-        }
-        if (planet) {
-            planet.rotation.x -= planetAutoRotateSpeed
+            ///////////////
+
+            planet.rotation.x -= planetAutoRotateSpeed // planet auto rotation
+
             /////////////// remove planet full rotation
             if (planet.rotation.x > 2 * Math.PI) {
                 planet.rotation.x = 0
