@@ -40,8 +40,8 @@ function init() {
     ///////////////////// Helpers
     // const axesHelper = new THREE.AxesHelper(5);
     // scene.add(axesHelper);
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.addEventListener('change', renderer);
+    // controls = new THREE.OrbitControls(camera, renderer.domElement);
+    // controls.addEventListener('change', renderer);
     ///////////////////
 
     ///////////////////// Lights
