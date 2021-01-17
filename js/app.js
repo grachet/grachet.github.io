@@ -1,4 +1,9 @@
-let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true, isLeaningRight = false, reversedPlanet = false;
+let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true, isLeaningRight = false, reversedPlanet = false, keyState = {};
+
+// const ArrowUp = 38;
+// const ArrowDown = 40;
+// const ArrowLeft = 39;
+// const ArrowRight = 37;
 
 const speed = 0.03;
 const planeSpeedLeaningX = 0.002;
@@ -101,30 +106,36 @@ function init() {
     ///////////////////////
 
 
+    ////////////////////keys
+    window.addEventListener('keydown', function (e) {
+        keyState[e.key || e.code] = true;
+    }, true);
+    window.addEventListener('keyup', function (e) {
+        keyState[e.key || e.code] = false;
+    }, true);
+    ///////////////
 
-
-    function onDocumentKeyDown(event) {
-        console.log(planet.rotation.x, reversedPlanet)
+    function onKey() {
 
         reversedPlanet = (planet.rotation.x > Math.PI / 2 && planet.rotation.x < Math.PI * 3 / 2) || (planet.rotation.x < -Math.PI / 2 && planet.rotation.x > -Math.PI * 3 / 2)
 
-        var keyName = event.key;
-        if (keyName === "ArrowUp") {
+        if (keyState.ArrowUp) {
             planet.rotation.x += speed;
             plane.rotation.z = 0;
         }
-        else if (keyName === "ArrowDown") {
+        if (keyState.ArrowDown) {
             planet.rotation.x -= speed;
             plane.rotation.z = Math.PI;
         }
-        else if (keyName === "ArrowLeft") {
+        if (keyState.ArrowLeft) {
             if (reversedPlanet) {
                 planet.rotation.y -= speed;
             } else {
                 planet.rotation.y += speed;
             }
             plane.rotation.z = Math.PI * 3 / 2;
-        } else if (keyName === "ArrowRight") {
+        }
+        if (keyState.ArrowRight) {
             if (reversedPlanet) {
                 planet.rotation.y += speed;
             } else {
@@ -132,18 +143,12 @@ function init() {
             }
             plane.rotation.z = Math.PI / 2;
         }
-        if (planet.rotation.x > 2 * Math.PI) {
-            planet.rotation.x = 0
-        }
-        if (planet.rotation.x < -2 * Math.PI) {
-            planet.rotation.x = 0
-        }
     };
 
-    document.addEventListener("keydown", onDocumentKeyDown, false);
 
     function animate() {
-        // Auto move plane
+
+        /////// Auto Move
         if (plane) {
             if (isLeaningRight) {
                 plane.rotation.y += planeSpeedLeaningY
@@ -169,10 +174,21 @@ function init() {
         }
         if (planet) {
             planet.rotation.x -= planetAutoRotateSpeed
+            /////////////// remove planet full rotation
+            if (planet.rotation.x > 2 * Math.PI) {
+                planet.rotation.x = 0
+            }
+            if (planet.rotation.x < -2 * Math.PI) {
+                planet.rotation.x = 0
+            }
+            ///////////////
+            onKey()
         }
         if (clouds) {
             clouds.rotation.x -= cloudSpeed
         }
+        ////////////
+
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
     }
