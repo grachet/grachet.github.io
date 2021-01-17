@@ -1,11 +1,13 @@
-let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true, isLeaningRight = false, reversedPlanet = false, keyState = {};
+let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true, isLeaningRight = false, reversedPlanet = false, keyState = {}, speed;
 
 // const ArrowUp = 38;
 // const ArrowDown = 40;
 // const ArrowLeft = 39;
 // const ArrowRight = 37;
 
-const speed = 0.03;
+const speedOneDirection = 0.025;
+const speedTwoDirection = 0.020;
+
 const planeSpeedLeaningX = 0.002;
 const planeLeaningXMin = Math.PI / 2 - 0.2;
 const planeLeaningXMax = Math.PI / 2 + 0.2;
@@ -118,6 +120,8 @@ function init() {
     function onKey() {
 
         reversedPlanet = (planet.rotation.x > Math.PI / 2 && planet.rotation.x < Math.PI * 3 / 2) || (planet.rotation.x < -Math.PI / 2 && planet.rotation.x > -Math.PI * 3 / 2)
+
+        speed = Object.values(keyState).filter(Boolean).length === 1 ? speedOneDirection : speedTwoDirection
 
         if (keyState.ArrowUp) {
             planet.rotation.x += speed;
