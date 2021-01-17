@@ -1,13 +1,16 @@
-let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true, isLeaningRight = false;
+let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true, isLeaningRight = false, reversedPlanet = false;
 
 const speed = 0.03;
 const planeSpeedLeaningX = 0.002;
-const planeLeaningXMin = 1.1;
-const planeLeaningXMax = 1.4;
+const planeLeaningXMin = Math.PI / 2 - 0.2;
+const planeLeaningXMax = Math.PI / 2 + 0.2;
 
 const planeSpeedLeaningY = 0.002;
 const planeLeaningYMin = -0.2;
 const planeLeaningYMax = 0.2;
+
+const planetAutoRotateSpeed = 0.0002;
+const cloudSpeed = 0.005;
 
 function init() {
 
@@ -24,13 +27,16 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 
 
-    /////////////////////
+    ///////////////////// Helpers
     // const axesHelper = new THREE.AxesHelper(5);
     // scene.add(axesHelper);
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.addEventListener('change', renderer);
+    // controls = new THREE.OrbitControls(camera, renderer.domElement);
+    // controls.addEventListener('change', renderer);
     ///////////////////
 
+
+
+    ///////////////////// Lights
     hlight = new THREE.AmbientLight(0x404040, 3);
     scene.add(hlight);
 
@@ -60,7 +66,11 @@ function init() {
     // light = new THREE.PointLight(0xc4c4c4, 10);
     // light.position.set(0, 300, 500);
     // scene.add(light);
+    /////////////////////
 
+
+
+    ///////////////////// Load models
     document.body.appendChild(renderer.domElement);
     let loader = new THREE.GLTFLoader();
 
@@ -68,18 +78,12 @@ function init() {
         gltfScene = gltf.scene;
         planet = gltfScene;
 
-        // const axesHelper = new THREE.AxesHelper(5);
-        // planet.add(axesHelper);
-
         scene.add(gltf.scene);
     });
 
     loader.load('models/clouds.glb', function (gltf) {
         gltfScene = gltf.scene;
         clouds = gltfScene;
-
-        const axesHelper = new THREE.AxesHelper(5);
-        clouds.add(axesHelper);
 
         scene.add(gltf.scene);
     });
@@ -89,14 +93,21 @@ function init() {
         plane = gltfScene.children[0]
 
         gltfScene.scale.set(0.1, 0.1, 0.1);
-        gltfScene.position.set(0, 0, 3.8);
-        gltfScene.rotation.set(-1.5, 0, 3.15);
+        gltfScene.position.set(0, 0, Math.PI + 0.7);
+        gltfScene.rotation.set(-Math.PI / 2, 0, Math.PI);
 
         scene.add(gltf.scene);
     });
+    ///////////////////////
+
+
+
 
     function onDocumentKeyDown(event) {
-        console.log(planet)
+        console.log(planet.rotation.x, reversedPlanet)
+
+        reversedPlanet = (planet.rotation.x > Math.PI / 2 && planet.rotation.x < Math.PI * 3 / 2) || (planet.rotation.x < -Math.PI / 2 && planet.rotation.x > -Math.PI * 3 / 2)
+
         var keyName = event.key;
         if (keyName === "ArrowUp") {
             planet.rotation.x += speed;
@@ -104,20 +115,35 @@ function init() {
         }
         else if (keyName === "ArrowDown") {
             planet.rotation.x -= speed;
-            plane.rotation.z = 3.15;
+            plane.rotation.z = Math.PI;
         }
         else if (keyName === "ArrowLeft") {
-            planet.rotation.y += speed;
-            plane.rotation.z = 4.725;
+            if (reversedPlanet) {
+                planet.rotation.y -= speed;
+            } else {
+                planet.rotation.y += speed;
+            }
+            plane.rotation.z = Math.PI * 3 / 2;
         } else if (keyName === "ArrowRight") {
-            planet.rotation.y -= speed;
-            plane.rotation.z = 1.575;
+            if (reversedPlanet) {
+                planet.rotation.y += speed;
+            } else {
+                planet.rotation.y -= speed;
+            }
+            plane.rotation.z = Math.PI / 2;
+        }
+        if (planet.rotation.x > 2 * Math.PI) {
+            planet.rotation.x = 0
+        }
+        if (planet.rotation.x < -2 * Math.PI) {
+            planet.rotation.x = 0
         }
     };
 
     document.addEventListener("keydown", onDocumentKeyDown, false);
 
     function animate() {
+        // Auto move plane
         if (plane) {
             if (isLeaningRight) {
                 plane.rotation.y += planeSpeedLeaningY
@@ -141,12 +167,12 @@ function init() {
                 isLeaningUp = false
             }
         }
-        // if (planet) {
-        //     planet.rotation.x -= 0.0002
-        // }
-        // if (clouds) {
-        //     clouds.rotation.x -= 0.005
-        // }
+        if (planet) {
+            planet.rotation.x -= planetAutoRotateSpeed
+        }
+        if (clouds) {
+            clouds.rotation.x -= cloudSpeed
+        }
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
     }
