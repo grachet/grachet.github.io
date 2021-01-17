@@ -1,6 +1,6 @@
 let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true,
     isLeaningRight = false, reversedPlanet = false, keyState = {},
-    speed, planeDirection = 0;
+    planeDirection = 0;
 
 // const ArrowUp = 38;
 // const ArrowDown = 40;
@@ -122,56 +122,82 @@ function init() {
 
     function onKey() {
 
+        ////// opposite keys
         if ((keyState.ArrowUp && keyState.ArrowDown) || (keyState.ArrowLeft && keyState.ArrowRight)) {
             return;
         }
 
         reversedPlanet = (planet.rotation.x > Math.PI / 2 && planet.rotation.x < Math.PI * 3 / 2) || (planet.rotation.x < -Math.PI / 2 && planet.rotation.x > -Math.PI * 3 / 2)
 
-        let nbDirections = Object.values(keyState).filter(Boolean).length;
-        speed = nbDirections === 1 ? speedOneDirection : speedTwoDirection
-
-        if (nbDirections) {
-            planeDirection = 0
-        }
-
-        if (keyState.ArrowUp) {
-            planet.rotation.x += speed;
-            planeDirection += keyState.ArrowLeft ? 2 * Math.PI : 0;
-        }
-        if (keyState.ArrowDown) {
-            planet.rotation.x -= speed;
-            planeDirection += Math.PI;
-        }
-        if (keyState.ArrowLeft) {
+        if (keyState.ArrowUp && keyState.ArrowLeft) { // ↖ 
+            console.log(reversedPlanet, planet.rotation.x)
+            planet.rotation.x += speedTwoDirection;
             if (reversedPlanet) {
-                planet.rotation.y -= speed;
+                planet.rotation.y -= speedTwoDirection;
             } else {
-                planet.rotation.y += speed;
+                planet.rotation.y += speedTwoDirection;
             }
-            planeDirection += Math.PI * 3 / 2;
-        }
-        if (keyState.ArrowRight) {
+            planeDirection = - 1 / 4 * Math.PI;
+        } else if (keyState.ArrowUp && keyState.ArrowRight) {  // ↗ 
+            planet.rotation.x += speedTwoDirection;
             if (reversedPlanet) {
-                planet.rotation.y += speed;
+                planet.rotation.y += speedTwoDirection;
             } else {
-                planet.rotation.y -= speed;
+                planet.rotation.y -= speedTwoDirection;
             }
-            planeDirection += Math.PI / 2;
-        }
+            planeDirection = 1 / 4 * Math.PI;
+        } else if (keyState.ArrowDown && keyState.ArrowRight) { // ↘ 
+            planet.rotation.x -= speedTwoDirection;
+            if (reversedPlanet) {
+                planet.rotation.y += speedTwoDirection;
+            } else {
+                planet.rotation.y -= speedTwoDirection;
+            }
+            planeDirection = 3 / 4 * Math.PI;
+        } else if (keyState.ArrowDown && keyState.ArrowLeft) { // ↙ 
+            planet.rotation.x -= speedTwoDirection;
+            if (reversedPlanet) {
+                planet.rotation.y -= speedTwoDirection;
+            } else {
+                planet.rotation.y += speedTwoDirection;
+            }
+            planeDirection = -3 / 4 * Math.PI;
 
-        planeDirection = nbDirections ? planeDirection / nbDirections : planeDirection;
+            ////////////////////////////// one direction
+        } else if (keyState.ArrowUp) { // ↑
+            planet.rotation.x += speedOneDirection;
+            planeDirection = 0;
+        } else if (keyState.ArrowDown) { // ↓
+            planet.rotation.x -= speedOneDirection;
+            planeDirection = Math.PI;
+        } else if (keyState.ArrowLeft) { // ←
+            if (reversedPlanet) {
+                planet.rotation.y -= speedOneDirection;
+            } else {
+                planet.rotation.y += speedOneDirection;
+            }
+            planeDirection = 3 / 2 * Math.PI;
+        } else if (keyState.ArrowRight) { // →
+            if (reversedPlanet) {
+                planet.rotation.y += speedOneDirection;
+            } else {
+                planet.rotation.y -= speedOneDirection;
+            }
+            planeDirection = 1 / 2 * Math.PI;
+        }
 
         console.log(plane.rotation.z, planeDirection)
 
-        toRight = plane.rotation.z < planeDirection;
+        plane.rotation.z = planeDirection
 
-        if (toRight && plane.rotation.z < planeDirection) {
-            plane.rotation.z += planeTurnSpeed
+        // toRight = plane.rotation.z < planeDirection;
 
-        } else if (!toRight && plane.rotation.z > planeDirection) {
-            plane.rotation.z -= planeTurnSpeed
-        }
+        // if (toRight && plane.rotation.z < planeDirection) {
+        //     plane.rotation.z += planeTurnSpeed
+
+        // } else if (!toRight && plane.rotation.z > planeDirection) {
+        //     plane.rotation.z -= planeTurnSpeed
+        // }
 
     };
 
@@ -213,15 +239,6 @@ function init() {
             if (planet.rotation.x < -2 * Math.PI) {
                 planet.rotation.x = 0
             }
-            ///////////////
-            /////////////// remove plane full rotation
-            if (plane.rotation.z > 2 * Math.PI) {
-                plane.rotation.z = 0
-            }
-            if (plane.rotation.z < -2 * Math.PI) {
-                plane.rotation.z = 0
-            }
-            ///////////////
             onKey()
         }
         if (clouds) {
