@@ -1,6 +1,7 @@
 let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true,
     isLeaningRight = false, reversedPlanet = false, keyState = {},
-    planeDirection = 0;
+    planeDirection = 0, panel, text, commandPanelHidden = false;
+
 
 // const ArrowUp = 38;
 // const ArrowDown = 40;
@@ -92,7 +93,25 @@ function init() {
     }, true);
     ///////////////
 
+    panel = document.getElementById('panel');
+
+    function hideCommandePanel() {
+        document.getElementById('commandPanel').style.display = 'none';
+        commandPanelHidden = true
+    }
+
     function onKey() {
+
+        newText = displayText(planet.rotation.x, planet.rotation.y);
+
+        if (text !== newText && !!newText) {
+            console.log("new text")
+            panel.style.display = "block"
+            text = newText;
+            panel.innerHTML = newText;
+        } else if (!newText) {
+            panel.style.display = "none"
+        }
 
         ////// opposite keys
         if ((keyState.ArrowUp && keyState.ArrowDown) || (keyState.ArrowLeft && keyState.ArrowRight)) {
@@ -101,7 +120,7 @@ function init() {
 
         reversedPlanet = (planet.rotation.x > Math.PI / 2 && planet.rotation.x < Math.PI * 3 / 2) || (planet.rotation.x < -Math.PI / 2 && planet.rotation.x > -Math.PI * 3 / 2)
 
-        if (keyState.ArrowUp && keyState.ArrowLeft) { // ↖  
+        if (keyState.ArrowUp && keyState.ArrowLeft) { // ↖
             planet.rotation.x += speedTwoDirection;
             if (reversedPlanet) {
                 planet.rotation.y -= speedTwoDirection;
@@ -136,12 +155,14 @@ function init() {
 
             ////////////////////////////// one direction
         } else if (keyState.ArrowUp) { // ↑
+            !commandPanelHidden && hideCommandePanel()
             planet.rotation.x += speedOneDirection;
             planeDirection = 0;
         } else if (keyState.ArrowDown) { // ↓
             planet.rotation.x -= speedOneDirection;
             planeDirection = Math.PI;
         } else if (keyState.ArrowLeft) { // ←
+            !commandPanelHidden && hideCommandePanel()
             if (reversedPlanet) {
                 planet.rotation.y -= speedOneDirection;
             } else {
@@ -178,6 +199,8 @@ function init() {
         if (planet && plane) {
 
             // console.log(planet.rotation)
+
+
 
             /////////////// plane leaning
             if (isLeaningRight) {
