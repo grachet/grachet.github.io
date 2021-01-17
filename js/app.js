@@ -41,14 +41,14 @@ function init() {
     ///////////////////// Helpers
     // const axesHelper = new THREE.AxesHelper(5);
     // scene.add(axesHelper);
-    // controls = new THREE.OrbitControls(camera, renderer.domElement);
-    // controls.addEventListener('change', renderer);
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.addEventListener('change', renderer);
     ///////////////////
 
 
 
     ///////////////////// Lights
-    hlight = new THREE.AmbientLight(0x404040, 3);
+    hlight = new THREE.AmbientLight(0x404040, 2.5);
     scene.add(hlight);
 
     // directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -61,18 +61,18 @@ function init() {
     // directionalLight.castShadow = true;
     // scene.add(directionalLight);
 
-    light = new THREE.PointLight(0xc4c4c4, 1);
-    light.position.set(0, 300, 500);
-    scene.add(light);
-    light2 = new THREE.PointLight(0xc4c4c4, 1);
-    light2.position.set(500, 100, 0);
-    scene.add(light2);
-    light3 = new THREE.PointLight(0xc4c4c4, 1);
-    light3.position.set(0, 100, -500);
-    scene.add(light3);
-    light4 = new THREE.PointLight(0xc4c4c4, 1);
-    light4.position.set(-500, 300, 500);
-    scene.add(light4);
+    // light = new THREE.PointLight(0xc4c4c4, 1);
+    // light.position.set(0, 300, 500);
+    // scene.add(light);
+    // light2 = new THREE.PointLight(0xc4c4c4, 1);
+    // light2.position.set(500, 100, 0);
+    // scene.add(light2);
+    // light3 = new THREE.PointLight(0xc4c4c4, 1);
+    // light3.position.set(0, 100, -500);
+    // scene.add(light3);
+    // light4 = new THREE.PointLight(0xc4c4c4, 1);
+    // light4.position.set(-500, 300, 500);
+    // scene.add(light4);
 
     // light = new THREE.PointLight(0xc4c4c4, 10);
     // light.position.set(0, 300, 500);
@@ -88,6 +88,9 @@ function init() {
     loader.load('models/planetAlone.glb', function (gltf) {
         gltfScene = gltf.scene;
         planet = gltfScene;
+        const light = new THREE.HemisphereLight(0xffffbb, 0x080820, 2);
+        light.position.set(Math.PI + 1, 0, Math.PI + 1)
+        planet.add(light);
 
         scene.add(gltf.scene);
     });

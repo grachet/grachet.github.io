@@ -12,7 +12,7 @@ const audioLoader = new THREE.AudioLoader();
 audioLoader.load('/music/music.mp3', function (buffer) {
     sound.setBuffer(buffer);
     sound.setLoop(true);
-    sound.setVolume(0.3);
+    sound.setVolume(0.2);
     sound.play();
 });
 
