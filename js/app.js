@@ -53,7 +53,7 @@ function init() {
     document.body.appendChild(renderer.domElement);
     let loader = new THREE.GLTFLoader();
 
-    loader.load('models/planetAlone.glb', function (gltf) {
+    loader.load('models/planet.glb', function (gltf) {
         gltfScene = gltf.scene;
         planet = gltfScene;
         const light = new THREE.HemisphereLight(0xffffbb, 0x080820, 2);
