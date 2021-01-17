@@ -10,6 +10,7 @@ let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true,
 const speedOneDirection = 0.025;
 const speedTwoDirection = 0.020;
 const planeTurnSpeed = 0.080;
+const planeTurnEpsilon = 0.080;
 
 const planeSpeedLeaningX = 0.002;
 const planeLeaningXMin = Math.PI / 2 - 0.2;
@@ -129,8 +130,7 @@ function init() {
 
         reversedPlanet = (planet.rotation.x > Math.PI / 2 && planet.rotation.x < Math.PI * 3 / 2) || (planet.rotation.x < -Math.PI / 2 && planet.rotation.x > -Math.PI * 3 / 2)
 
-        if (keyState.ArrowUp && keyState.ArrowLeft) { // ↖ 
-            console.log(reversedPlanet, planet.rotation.x)
+        if (keyState.ArrowUp && keyState.ArrowLeft) { // ↖  
             planet.rotation.x += speedTwoDirection;
             if (reversedPlanet) {
                 planet.rotation.y -= speedTwoDirection;
@@ -186,19 +186,18 @@ function init() {
             planeDirection = 1 / 2 * Math.PI;
         }
 
-        console.log(plane.rotation.z, planeDirection)
+        const sinus = Math.sin(plane.rotation.z - planeDirection);
+        const cos = Math.cos(plane.rotation.z - planeDirection);
+        const isAnglesCloserThanEpsilon = Math.abs(sinus) < planeTurnEpsilon
+        const isAnglesNotAt180Degrees = 1 - cos < planeTurnEpsilon;
 
-        plane.rotation.z = planeDirection
-
-        // toRight = plane.rotation.z < planeDirection;
-
-        // if (toRight && plane.rotation.z < planeDirection) {
-        //     plane.rotation.z += planeTurnSpeed
-
-        // } else if (!toRight && plane.rotation.z > planeDirection) {
-        //     plane.rotation.z -= planeTurnSpeed
-        // }
-
+        if (isAnglesCloserThanEpsilon && isAnglesNotAt180Degrees) {
+            plane.rotation.z = planeDirection
+        } else if (sinus > 0) {
+            plane.rotation.z -= planeTurnSpeed
+        } else if (sinus < 0) {
+            plane.rotation.z += planeTurnSpeed
+        }
     };
 
 
