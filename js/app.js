@@ -121,17 +121,24 @@ function init() {
 
     function onKey() {
 
+        if ((keyState.ArrowUp && keyState.ArrowDown) || (keyState.ArrowLeft && keyState.ArrowRight)) {
+            return;
+        }
+
         reversedPlanet = (planet.rotation.x > Math.PI / 2 && planet.rotation.x < Math.PI * 3 / 2) || (planet.rotation.x < -Math.PI / 2 && planet.rotation.x > -Math.PI * 3 / 2)
 
-        speed = Object.values(keyState).filter(Boolean).length === 1 ? speedOneDirection : speedTwoDirection
+        let nbDirections = Object.values(keyState).filter(Boolean).length;
+        speed = nbDirections === 1 ? speedOneDirection : speedTwoDirection
+
+        planeDirection = 0
 
         if (keyState.ArrowUp) {
             planet.rotation.x += speed;
-            planeDirection = 0;
+            planeDirection += keyState.ArrowLeft ? 2 * Math.PI : 0;
         }
         if (keyState.ArrowDown) {
             planet.rotation.x -= speed;
-            planeDirection = Math.PI;
+            planeDirection += Math.PI;
         }
         if (keyState.ArrowLeft) {
             if (reversedPlanet) {
@@ -139,7 +146,7 @@ function init() {
             } else {
                 planet.rotation.y += speed;
             }
-            planeDirection = Math.PI * 3 / 2;
+            planeDirection += Math.PI * 3 / 2;
         }
         if (keyState.ArrowRight) {
             if (reversedPlanet) {
@@ -147,10 +154,13 @@ function init() {
             } else {
                 planet.rotation.y -= speed;
             }
-            planeDirection = Math.PI / 2;
+            planeDirection += Math.PI / 2;
         }
 
-        plane.rotation.z = planeDirection
+        if (nbDirections) {
+            console.log(planeDirection)
+            plane.rotation.z = planeDirection / nbDirections
+        }
     };
 
 
