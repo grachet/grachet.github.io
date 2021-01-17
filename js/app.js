@@ -159,6 +159,7 @@ function init() {
             planet.rotation.x += speedOneDirection;
             planeDirection = 0;
         } else if (keyState.ArrowDown) { // ↓
+            !commandPanelHidden && hideCommandePanel()
             planet.rotation.x -= speedOneDirection;
             planeDirection = Math.PI;
         } else if (keyState.ArrowLeft) { // ←
@@ -170,6 +171,7 @@ function init() {
             }
             planeDirection = 3 / 2 * Math.PI;
         } else if (keyState.ArrowRight) { // →
+            !commandPanelHidden && hideCommandePanel()
             if (reversedPlanet) {
                 planet.rotation.y += speedOneDirection;
             } else {
@@ -225,7 +227,7 @@ function init() {
             }
             ///////////////
 
-            planet.rotation.x -= planetAutoRotateSpeed // planet auto rotation
+            // planet.rotation.x -= planetAutoRotateSpeed // planet auto rotation
 
             /////////////// remove planet full rotation
             if (planet.rotation.x > 2 * Math.PI) {
@@ -233,6 +235,12 @@ function init() {
             }
             if (planet.rotation.x < -2 * Math.PI) {
                 planet.rotation.x = 0
+            }
+            if (planet.rotation.y > 2 * Math.PI) {
+                planet.rotation.y = 0
+            }
+            if (planet.rotation.y < -2 * Math.PI) {
+                planet.rotation.y = 0
             }
             onKey()
         }
