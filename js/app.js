@@ -118,7 +118,7 @@ function init() {
             return;
         }
 
-        reversedPlanet = (planet.rotation.x > Math.PI / 2 && planet.rotation.x < Math.PI * 3 / 2) || (planet.rotation.x < -Math.PI / 2 && planet.rotation.x > -Math.PI * 3 / 2)
+        reversedPlanet = (planet.rotation.x > Math.PI / 2 && planet.rotation.x < Math.PI * 3 / 2)
 
         if (keyState.ArrowUp && keyState.ArrowLeft) { // ↖
             planet.rotation.x += speedTwoDirection;
@@ -233,14 +233,14 @@ function init() {
             if (planet.rotation.x > 2 * Math.PI) {
                 planet.rotation.x = 0
             }
-            if (planet.rotation.x < -2 * Math.PI) {
-                planet.rotation.x = 0
+            if (planet.rotation.x < 0 * Math.PI) {
+                planet.rotation.x = 2 * Math.PI
             }
             if (planet.rotation.y > 2 * Math.PI) {
                 planet.rotation.y = 0
             }
-            if (planet.rotation.y < -2 * Math.PI) {
-                planet.rotation.y = 0
+            if (planet.rotation.y < 0 * Math.PI) {
+                planet.rotation.y = 2 * Math.PI
             }
             onKey()
         }

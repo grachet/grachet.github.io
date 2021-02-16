@@ -9,7 +9,7 @@ function isIn(x, y, xpos, ypos) {
 // }
 
 function displayText(x, y) {
-    // return "x : " + Math.round(x * 10) / 10 + " y : " + Math.round(y * 10) / 10
+    return "x : " + Math.round(x * 10) / 10 + " y : " + Math.round(y * 10) / 10
     // console.log("x : " + Math.round(x * 10) / 10 + " y : " + Math.round(y * 10) / 10)
 
     if (isIn(x, y, -1.7, -10000.3)) { // x 4
