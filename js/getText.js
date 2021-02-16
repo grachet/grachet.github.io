@@ -5,18 +5,12 @@ function getDiff(pos, pos2) {
 }
 
 function isIn(x, y, xpos, ypos) {
-    // console.log(x, xpos, getDiff(x, xpos))
     return (getDiff(x, xpos) + getDiff(y, ypos)) < posEpsilon
 }
 
-// function isIn(x, y, xmin, xmax, ymin, ymax) {
-//     return x >= xmin && x <= xmax && y >= ymin && y <= ymax
-// }
-
 function displayText(x, y) {
 
-    let pos = "x : " + Math.round(x * 10) / 10 + " y : " + Math.round(y * 10) / 10
-    // console.log("x : " + Math.round(x * 10) / 10 + " y : " + Math.round(y * 10) / 10)
+    // let pos = "x : " + Math.round(x * 10) / 10 + " y : " + Math.round(y * 10) / 10 
 
     if (isIn(x, y, 6.2, 0.6) || isIn(x, y, 3.2, 3.8)) {
         return "about"
@@ -29,6 +23,6 @@ function displayText(x, y) {
     } else if (isIn(x, y, 1.9, 4.4) || isIn(x, y, 1.3, 1.2)) { // isIn(x, y, 1.3, 1.2) || isIn(x, y, 1.8, 4.3) || isIn(x, y, 1.8, 5.1) || isIn(x, y, 2.1, 4.4) || isIn(x, y, 1.2, 0.6)
         return "hire me"
     } else {
-        return pos;
+        return;//pos;
     }
 }
