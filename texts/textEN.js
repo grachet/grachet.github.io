@@ -1,5 +1,7 @@
 const otherEN = {
+  cvLink: "./documents/CV_Rachet_Guillaume_EN.pdf",
   commandPanel: "Mute : M \n  Move : ← ↑ → ↓",
+
   buttonME: "ME",
   buttonProject: "PROJECTS",
   buttonContact: "CONTACT",

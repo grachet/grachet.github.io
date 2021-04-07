@@ -1,6 +1,6 @@
 let scene, camera, renderer, planet, plane, clouds, isLeaningUp = true,
     isLeaningRight = false, reversedPlanet = false, keyState = {},
-    planeDirection = 0, panel, text, commandPanelHidden = false;
+    planeDirection = 0, panel, newIdPanel, idPanel, commandPanelHidden = false;
 
 
 // const ArrowUp = 38;
@@ -102,14 +102,14 @@ function init() {
 
     function onKey() {
 
-        newText = displayText(planet.rotation.x, planet.rotation.y);
+        newIdPanel = getIDPanel(planet.rotation.x, planet.rotation.y);
 
-        if (text !== newText && !!newText) {
+        if (idPanel !== newIdPanel && !!newIdPanel) {
             panel.style.display = "block"
-            text = newText;
-            panel.innerHTML = newText;
-        } else if (!newText) {
-            text = undefined;
+            idPanel = newIdPanel;
+            panel.innerHTML = newIdPanel;
+        } else if (!newIdPanel) {
+            idPanel = undefined;
             panel.style.display = "none"
         }
 

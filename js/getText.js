@@ -8,7 +8,7 @@ function isIn(x, y, xpos, ypos) {
     return (getDiff(x, xpos) + getDiff(y, ypos)) < posEpsilon
 }
 
-function displayText(x, y) {
+function getIDPanel(x, y) {
 
     // let pos = "x : " + Math.round(x * 10) / 10 + " y : " + Math.round(y * 10) / 10 
 
@@ -21,7 +21,7 @@ function displayText(x, y) {
     } else if (x >= 4.3 && x <= 5.1) { // isIn(x, y, 5, 0.1) || isIn(x, y, 4.5, 3.3) || isIn(x, y, 4.5, 4.4) || isIn(x, y, 4.3, 2.8) || isIn(x, y, 5.1, 6) || isIn(x, y, 4.9, 1) || isIn(x, y, 4.9, 3)
         return "projects"
     } else if (isIn(x, y, 1.9, 4.4) || isIn(x, y, 1.3, 1.2)) { // isIn(x, y, 1.3, 1.2) || isIn(x, y, 1.8, 4.3) || isIn(x, y, 1.8, 5.1) || isIn(x, y, 2.1, 4.4) || isIn(x, y, 1.2, 0.6)
-        return "hire me"
+        return "hireMe"
     } else {
         return;//pos;
     }

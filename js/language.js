@@ -17,6 +17,10 @@ flagIcon.addEventListener("click", function (e) {
 });
 
 function fillText(allText) {
+
+
+    document.getElementById("cvLink").href = allText.cvLink
+
     document.getElementById("commandPanel").innerText = allText.commandPanel
 }
 
