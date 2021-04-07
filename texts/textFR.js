@@ -1,5 +1,5 @@
 const otherFR = {
-  commandPanel: "Son : M \n  Bouger : ← ↑ → ↓",
+  commandPanel: "Couper le son : M \n  Se deplacer : ← ↑ → ↓",
   buttonME: "CURSUS",
   buttonProject: "PROJETS",
   buttonContact: "CONTACT",

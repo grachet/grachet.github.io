@@ -20,60 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">  -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            width: 100vw;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            cursor: url('./images/cursor.svg'), default;
-            /* cursor: none; */
-            background-color: #222222;
-        }
-
-        #soundIcon {
-            cursor: url('./images/cursor-click.svg'), default;
-            position: absolute;
-            top: 80px;
-            left: 20px;
-            height: 40px;
-            width: 40px;
-        }
-
-        #flagIcon {
-            cursor: url('./images/cursor-click.svg'), default;
-            position: absolute;
-            height: 40px;
-            width: 40px;
-            top: 20px;
-            left: 20px;
-        }
-
-        #panel {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #222222;
-            color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            padding: 10px;
-            width: 200px;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        #commandPanel {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #222222;
-            color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            padding: 10px;
-            width: 200px;
-            font-family: 'Roboto', sans-serif;
-        }
-    </style>
+    <link href="/app.css" rel="stylesheet">
 </head>
 
 <body>
@@ -89,8 +36,7 @@
     </script>
     <img src="images/sound.svg" id="soundIcon">
     <img src="images/english.svg" id="flagIcon">
-    <div id="panel">
-    </div>
+    <div id="panel"> </div>
     <div id="commandPanel" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
     <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
