@@ -17,6 +17,19 @@ audioLoader.load(`./music/music.mp3`, function (buffer) {
 });
 
 var icon = document.getElementById('soundIcon');
+
+icon.addEventListener("click", function (e) {
+    if (isMute) {
+        isMute = false
+        icon.src = `./images/sound.svg`;
+        sound.play();
+    } else {
+        isMute = true
+        icon.src = `./images/no-sound.svg`;
+        sound.pause();
+    }
+});
+
 window.addEventListener("keydown", function (e) {
     if (e.key === "m") {
         if (isMute) {
