@@ -2,15 +2,40 @@ const otherEN = {
   cvLink: "./documents/CV_Rachet_Guillaume_EN.pdf",
   commandPanel: "Mute : M \n  Move : ← ↑ → ↓",
 
+  hireMe: {
+    title: "Contact",
+    mail: "guillaume.rachet@gmail.com",
+    tel: "+33 6 65 19 45 06",
+    address: "13 rue du Grand Noyer 78280 Guyancourt",
+  },
+
+  about: {
+    title: "About",
+    text: "Currently in professional licence PRISM in Orsay, I would like to conduct a training to deepen even more" +
+      " my specialization. I use Javascript technologies in " +
+      "all their forms (React, Node, NoSQL ...) that I like and that seem to me to be the future of Web development.",
+  },
+
+  jobs: {
+    title: "Jobs",
+  },
+
+  projects: {
+    title: "Projects",
+  },
+
+  studies: {
+    title: "Studies",
+  },
+
+
+
   buttonME: "ME",
   buttonProject: "PROJECTS",
   buttonContact: "CONTACT",
   titlePage: "A young web developer with a passion for react.",
   titleCursus: "My favorite project? It's the next one.",
   titleSkills: "My skills",
-  textCursus: "Currently in professional licence PRISM in Orsay, I would like to conduct a training to deepen even more" +
-    " my specialization. I use Javascript technologies in " +
-    "all their forms (React, Node, NoSQL ...) that I like and that seem to me to be the future of Web development.",
   mail: {
     sendWorking: "Mail send !",
     title: "Let’s build something together",
