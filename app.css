@@ -4,13 +4,16 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            cursor: url('./images/cursor.svg'), default;
+            cursor: url('./images/red-cursor.svg'), default;
+            /* cursor: url('./images/cursor.svg'), default; */
             /* cursor: none; */
             background-color: #222222;
         }
 
-        #soundIcon {
-            cursor: url('./images/cursor-click.svg'), default;
+        
+
+        #soundIcon { 
+            cursor: pointer;
             position: absolute;
             top: 80px;
             left: 20px;
@@ -19,7 +22,7 @@
         }
 
         #flagIcon {
-            cursor: url('./images/cursor-click.svg'), default;
+            cursor: url('./images/red-click.svg'), default;
             position: absolute;
             height: 40px;
             width: 40px;
@@ -28,6 +31,7 @@
         }
 
         #panel {
+            cursor: url('./images/red-click.svg'), default;
             position: absolute;
             top: 20px;
             right: 20px;
