@@ -107,7 +107,14 @@ function init() {
         if (idPanel !== newIdPanel && !!newIdPanel) {
             panel.style.display = "block"
             idPanel = newIdPanel;
-            panel.innerHTML = newIdPanel;
+
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('studies').style.display = 'none';
+            document.getElementById('hireMe').style.display = 'none';
+            document.getElementById('jobs').style.display = 'none';
+            document.getElementById('projects').style.display = 'none';
+            document.getElementById(newIdPanel).style.display = 'block';
+
         } else if (!newIdPanel) {
             idPanel = undefined;
             panel.style.display = "none"
