@@ -35,14 +35,20 @@
         #soundIcon {
             cursor: url('./images/cursor-click.svg'), default;
             position: absolute;
-            top: 20px;
+            top: 80px;
             left: 20px;
             height: 40px;
             width: 40px;
         }
 
-        /* #soundIcon:hover {
-        } */
+        #flagIcon {
+            cursor: url('./images/cursor-click.svg'), default;
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            top: 20px;
+            left: 20px;
+        }
 
         #panel {
             position: absolute;
@@ -82,17 +88,16 @@
         }
     </script>
     <img src="images/sound.svg" id="soundIcon">
+    <img src="images/english.svg" id="flagIcon">
     <div id="panel">
     </div>
-    <div id="commandPanel">
-        Mute : M
-        <br>
-        Move : ← ↑ → ↓
-    </div>
+    <div id="commandPanel" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
     <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
     <script src="https://threejs.org/examples/js/loaders/GLTFLoader.js"></script>
-
+    <script src="./texts/textEN.js"></script>
+    <script src="./texts/textFR.js"></script>
+    <script src="./js/language.js"></script>
     <script src="./js/getText.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/music.js"></script>

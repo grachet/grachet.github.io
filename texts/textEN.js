@@ -1,11 +1,101 @@
-export default {
+const otherEN = {
+  commandPanel: "Mute : M \n  Move : ← ↑ → ↓",
+  buttonME: "ME",
+  buttonProject: "PROJECTS",
+  buttonContact: "CONTACT",
+  titlePage: "A young web developer with a passion for react.",
+  titleCursus: "My favorite project? It's the next one.",
+  titleSkills: "My skills",
+  textCursus: "Currently in professional licence PRISM in Orsay, I would like to conduct a training to deepen even more" +
+    " my specialization. I use Javascript technologies in " +
+    "all their forms (React, Node, NoSQL ...) that I like and that seem to me to be the future of Web development.",
+  mail: {
+    sendWorking: "Mail send !",
+    title: "Let’s build something together",
+    mailInput: "Your mail",
+    subjectInput: "Subject",
+    messageInput: "Message",
+    buttonSend: "Send"
+  },
+  skills: [
+    {
+      text: "Design web applications",
+      skills: ["React/Redux", "Angular", "Symphony"]
+    },
+    {
+      text: "API and Webservices",
+      skills: ["NodeJS", "Express", "Google/Microsoft... API"]
+    },
+    {
+      text: "Database",
+      skills: ["NoSQL", "Firebase", "Couch DB", "Oracle"]
+    },
+    {
+      text: "Develop mobile apps",
+      skills: ["React native"]
+    },
+    {
+      text: "Put in production",
+      skills: ["Domain Name/Hebergers", "FTP/SSH", "Google play"]
+    },
+    {
+      text: "Manage a project and its timeline",
+      skills: ["Git", "Agile method", "Trello", "Uml"]
+    },
+  ]
+}
+
+const projectsEN = {
+  projects: [
+    {
+      name: "Travel organizer",
+      description: "Place points of interest on a map to organize your trips.",
+
+      url: "https://react-gmap-place-server-2be4c.firebaseapp.com/",
+      githubUrl: "https://github.com/grachet/react-gmap-places-saver",
+      src: "gmap",
+    },
+    {
+      name: "Calculation app",
+      description: "In react native, available only on the Android store.",
+
+      url: "https://play.google.com/store",
+      githubUrl: "https://github.com/grachet/react-linearization-app",
+      src: "app",
+    },
+    {
+      name: "Web Organizer",
+      description: "Angular5 app that manages color palettes, notes and lists of objectives by project.",
+      url: "http://note.rachet.fr",
+      githubUrl: "https://github.com/grachet/web-note-app",
+      src: "webnote",
+    },
+    {
+      name: "Boiler Plate React/Redux/Auth/ MaterialUI/Firebase...",
+      description: "Allows me to quickly start a project, available in open source.",
+      url: "https://react-projects-boilerplate.firebaseapp.com/",
+      githubUrl: "https://github.com/grachet/react-projects-boilerplate",
+      src: "boiler",
+    },
+    {
+      name: "Online game",
+      description: "My first JS project.",
+
+      url: "https://space-game-attack.firebaseapp.com/",
+      githubUrl: "https://github.com/grachet/space-attack",
+      src: "game",
+    }
+  ]
+}
+
+const cvEN = {
   formation: {
-    2020 : {
+    2020: {
       name: "Master 2 in software development",
       date: "2020 - 2021",
       description: "ETGL AFTI Orsay"
     },
-    2019 : {
+    2019: {
       name: "Master 1 in software development",
       date: "2019 - 2020",
       description: "ETGL AFTI Orsay"
@@ -99,4 +189,10 @@ export default {
       ]
     },
   },
+}
+
+const textEN = {
+  projects: projectsEN,
+  cv: cvEN,
+  ...otherEN
 }
