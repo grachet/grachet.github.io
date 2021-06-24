@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+    version="1.1" width="512" height="512" style="" xml:space="preserve">
+    <rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none" />
+    <g class="currentLayer" style="">
+        <title>Layer 1</title>
+        <rect fill="url(#svg_2)" stroke-dashoffset="" fill-rule="nonzero" id="svg_3" x="0" y="250.5" width="40"
+            height="60" style="color: rgb(0, 0, 0);" class="selected" filter="" rx="0" ry="0" fill-opacity="1" />
+        <rect fill="url(#svg_2)" stroke-dashoffset="" fill-rule="nonzero" x="79.16230010986328" y="250.5" width="40"
+            height="60" style="color: rgb(0, 0, 0);" class="selected" id="svg_6" filter="" rx="0" ry="0"
+            fill-opacity="1" />
+        <rect fill="url(#svg_2)" stroke-dashoffset="" fill-rule="nonzero" x="157.80104064941406" y="250.5" width="40"
+            height="60" style="color: rgb(0, 0, 0);" class="selected" id="svg_7" filter="" rx="0" ry="0"
+            fill-opacity="1" />
+        <rect fill="url(#svg_2)" stroke-dashoffset="" fill-rule="nonzero" x="235.91622924804688" y="250.5" width="40"
+            height="60" style="color: rgb(0, 0, 0);" class="selected" id="svg_8" filter="" rx="0" ry="0"
+            fill-opacity="1" />
+        <rect fill="url(#svg_2)" stroke-dashoffset="" fill-rule="nonzero" x="314.0314025878906" y="250.5" width="40"
+            height="60" style="color: rgb(0, 0, 0);" class="selected" id="svg_9" filter="" rx="0" ry="0"
+            fill-opacity="1" />
+        <rect fill="url(#svg_2)" stroke-dashoffset="" fill-rule="nonzero" x="392.6701354980469" y="250.5" width="40"
+            height="60" style="color: rgb(0, 0, 0);" class="selected" id="svg_10" filter="" rx="0" ry="0"
+            fill-opacity="1" />
+        <rect fill="url(#svg_2)" stroke-dashoffset="" fill-rule="nonzero" x="471.8324279785156" y="250.5" width="40"
+            height="60" style="color: rgb(0, 0, 0);" class="selected" id="svg_11" filter="" rx="0" ry="0"
+            fill-opacity="1" />
+    </g>
+    <defs>
+        <filter xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" id="f096" inkscape:label="Color emboss"
+            x="0" y="0" width="1" height="1" inkscape:menu="Bumps"
+            inkscape:menu-tooltip="Classic or colorized emboss effect: grayscale, color and 3D relief"
+            color-interpolation-filters="sRGB">
+            <feColorMatrix type="luminanceToAlpha" result="result2" />
+            <feDiffuseLighting surfaceScale="-10" result="result1" diffuseConstant="1" lighting-color="#fff">
+                <feDistantLight azimuth="225" elevation="35" />
+            </feDiffuseLighting>
+            <feFlood flood-opacity=".5" result="result3" in="SourceGraphic" />
+            <feComposite result="result4" in2="result3" operator="arithmetic" in="result1" k1=".5" k2=".5" k3="1" />
+            <feBlend mode="normal" in2="SourceGraphic" in="result4" result="result91" />
+            <feComposite operator="arithmetic" k2="1" in2="result91" />
+            <feComposite in2="SourceGraphic" operator="in" />
+        </filter>
+        <linearGradient id="svg_1" spreadMethod="pad">
+            <stop stop-color="#2af598" stop-opacity="1" offset="0" />
+            <stop stop-color="#009efd" stop-opacity="1" offset="1" />
+        </linearGradient>
+        <linearGradient id="svg_2" spreadMethod="pad" x1="0.0" y1="0.0" x2="0" y2="1">
+            <stop stop-color="#2af598" stop-opacity="1" offset="0" />
+            <stop stop-color="#009efd" stop-opacity="1" offset="1" />
+        </linearGradient>
+    </defs>
+</svg>
