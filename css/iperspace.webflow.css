@@ -107,7 +107,7 @@ a {
   z-index: 0;
   width: 25%;
   height: 100%;
-  background-image: url('../images/annabelle.jpg');
+  background-image: url('../images/project1.jpg');
   background-position: 50% 50%;
   background-size: cover;
   opacity: 0;
@@ -879,7 +879,7 @@ a {
   background-size: cover;
 }
 
-.thumb-full.annabelle1 {
+.thumb-full.project11 {
   border-radius: 10px;
   background-color: #edbdb3;
   background-image: url('../images/3_1.jpg');
@@ -888,14 +888,14 @@ a {
   background-repeat: no-repeat;
 }
 
-.thumb-full.annabelle2 {
+.thumb-full.project12 {
   border-radius: 10px;
   background-image: url('../images/3-min.jpg');
   background-position: 50% 50%;
   background-size: 1211px;
 }
 
-.thumb-full.annabelle4 {
+.thumb-full.project14 {
   border-radius: 6px;
   background-color: #fff;
   background-image: url('../images/03.-min_1.png');
@@ -926,14 +926,14 @@ a {
   background-repeat: repeat;
 }
 
-.thumb-full.annabelle6 {
+.thumb-full.project16 {
   border-radius: 10px;
   background-image: url('../images/1-min.jpg');
   background-position: 50% 100%;
   background-size: cover;
 }
 
-.thumb-full.annabelle5 {
+.thumb-full.project15 {
   border-radius: 10px;
   background-color: #edbdb3;
   background-image: url('../images/fonts.svg');
@@ -1113,14 +1113,14 @@ a {
   text-decoration: none;
 }
 
-.image-hero-annabelle {
+.image-hero-project1 {
   position: fixed;
   top: 0px;
   right: 0px;
   bottom: 0px;
   width: 100%;
   height: 100%;
-  background-image: url('../images/annabelle.jpg');
+  background-image: url('../images/project1.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1616,21 +1616,21 @@ html.w-mod-js *[data-ix="modal-interaction"] {
     background-position: 0px 0px;
     background-size: cover;
   }
-  .thumb-full.annabelle1 {
+  .thumb-full.project11 {
     background-color: transparent;
   }
-  .thumb-full.annabelle2 {
+  .thumb-full.project12 {
     background-color: transparent;
     background-repeat: no-repeat;
   }
-  .thumb-full.annabelle4 {
+  .thumb-full.project14 {
     background-size: contain;
     background-repeat: no-repeat;
   }
   .thumb-full.xtra7 {
     width: 100%;
   }
-  .thumb-full.annabelle5 {
+  .thumb-full.project15 {
     background-size: 120%;
   }
   .thumb-full.decathlon3 {
@@ -1640,7 +1640,7 @@ html.w-mod-js *[data-ix="modal-interaction"] {
   .footer-section {
     height: 280px;
   }
-  .image-hero-annabelle {
+  .image-hero-project1 {
     position: static;
     height: 500px;
   }
@@ -1710,7 +1710,7 @@ html.w-mod-js *[data-ix="modal-interaction"] {
   }
   .link-case-mobile.one {
     display: block;
-    background-image: url('../images/annabelle.jpg');
+    background-image: url('../images/project1.jpg');
     background-position: 50% 50%;
     background-size: cover;
   }
@@ -1849,10 +1849,10 @@ html.w-mod-js *[data-ix="modal-interaction"] {
   .images-full.xtra9 {
     height: 400px;
   }
-  .thumb-full.annabelle1 {
+  .thumb-full.project11 {
     background-color: transparent;
   }
-  .thumb-full.annabelle5 {
+  .thumb-full.project15 {
     background-size: 120%;
   }
   .thumb-full.decathlon1 {
@@ -2074,18 +2074,18 @@ html.w-mod-js *[data-ix="modal-interaction"] {
   .thumb-full.elflako4 {
     border-radius: 0px;
   }
-  .thumb-full.annabelle1 {
+  .thumb-full.project11 {
     border-radius: 0px;
     background-size: cover;
   }
-  .thumb-full.annabelle2 {
+  .thumb-full.project12 {
     border-radius: 0px;
   }
   .thumb-full.xtra7 {
     width: 100%;
     background-size: 110%;
   }
-  .thumb-full.annabelle6 {
+  .thumb-full.project16 {
     border-radius: 0px;
   }
   .thumb-full.decathlon5 {
@@ -2130,7 +2130,7 @@ html.w-mod-js *[data-ix="modal-interaction"] {
   .next-title-case {
     font-size: 50px;
   }
-  .image-hero-annabelle {
+  .image-hero-project1 {
     height: 500px;
   }
   .scrolldown {
