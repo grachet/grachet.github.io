@@ -53,7 +53,7 @@ a {
   display: block;
   width: 25%;
   height: 100%;
-  background-image: url('../images/decathlon.png');
+  background-image: url('../images/project2.png');
   background-position: 0px 50%;
   background-size: cover;
   opacity: 0;
@@ -148,7 +148,7 @@ a {
   top: 50%;
   width: 25%;
   height: 100%;
-  background-image: url('../images/eventoxtra-header.jpg');
+  background-image: url('../images/project3-header.jpg');
   background-position: 50% 50%;
   background-size: cover;
   opacity: 0;
@@ -792,7 +792,7 @@ a {
   background-color: #fafafa;
 }
 
-.images-full.elflako7 {
+.images-full.project47 {
   background-image: url('../images/flako7-min.jpg');
   background-position: 50% 50%;
   background-size: cover;
@@ -858,7 +858,7 @@ a {
   background-size: cover;
 }
 
-.thumb-full.elflako2 {
+.thumb-full.project42 {
   border-radius: 10px;
   background-color: #2c2d2d;
   background-image: url('../images/Brand-Press-White.png');
@@ -866,13 +866,13 @@ a {
   background-size: cover;
 }
 
-.thumb-full.elflako3 {
+.thumb-full.project43 {
   background-image: url('../images/flako-web-min.png');
   background-position: 50% 50%;
   background-size: cover;
 }
 
-.thumb-full.elflako4 {
+.thumb-full.project44 {
   border-radius: 10px;
   background-image: url('../images/03.jpg');
   background-position: 50% 50%;
@@ -942,7 +942,7 @@ a {
   background-repeat: no-repeat;
 }
 
-.thumb-full.decathlon5 {
+.thumb-full.project25 {
   border-radius: 10px;
   background-color: #ff6862;
   background-image: url('../images/22.Producto-min.png');
@@ -951,7 +951,7 @@ a {
   background-repeat: no-repeat;
 }
 
-.thumb-full.decathlon6 {
+.thumb-full.project26 {
   height: 100%;
   border-radius: 10px;
   background-color: #0172b6;
@@ -961,14 +961,14 @@ a {
   background-repeat: no-repeat;
 }
 
-.thumb-full.decathlon1 {
+.thumb-full.project21 {
   border-radius: 10px;
   background-image: url('../images/Desktop-Landscape.png');
   background-position: 50% -39px;
   background-size: cover;
 }
 
-.thumb-full.decathlon2 {
+.thumb-full.project22 {
   border-radius: 10px;
   background-image: url('../images/03.-min.png');
   background-position: 50% 50%;
@@ -976,23 +976,23 @@ a {
   background-repeat: no-repeat;
 }
 
-.thumb-full.decathlon3 {
+.thumb-full.project23 {
   border-radius: 10px;
   background-color: #fff;
-  background-image: url('../images/decathlon3.jpg');
+  background-image: url('../images/project23.jpg');
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.thumb-full.elflako5 {
+.thumb-full.project45 {
   border-radius: 10px;
   background-image: url('../images/04.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
 
-.thumb-full.elflako6 {
+.thumb-full.project46 {
   border-radius: 10px;
   background-image: url('../images/flako6-min.jpg');
   background-position: 50% 50%;
@@ -1125,13 +1125,13 @@ a {
   background-size: cover;
 }
 
-.image-hero-decathlon {
+.image-hero-project2 {
   position: fixed;
   left: 0px;
   top: 0px;
   width: 100%;
   height: 100%;
-  background-image: url('../images/decathlon.png');
+  background-image: url('../images/project2.png');
   background-position: 0px 0px;
   background-size: cover;
 }
@@ -1153,7 +1153,7 @@ a {
   top: 0px;
   width: 100%;
   height: 100%;
-  background-image: url('../images/eventoxtra-header.jpg');
+  background-image: url('../images/project3-header.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -1611,7 +1611,7 @@ html.w-mod-js *[data-ix="modal-interaction"] {
   .thumb-full.elfako1 {
     background-position: 50% 50%;
   }
-  .thumb-full.elflako4 {
+  .thumb-full.project44 {
     background-image: url('../images/03.jpg');
     background-position: 0px 0px;
     background-size: cover;
@@ -1633,7 +1633,7 @@ html.w-mod-js *[data-ix="modal-interaction"] {
   .thumb-full.project15 {
     background-size: 120%;
   }
-  .thumb-full.decathlon3 {
+  .thumb-full.project23 {
     background-color: transparent;
     background-repeat: no-repeat;
   }
@@ -1644,7 +1644,7 @@ html.w-mod-js *[data-ix="modal-interaction"] {
     position: static;
     height: 500px;
   }
-  .image-hero-decathlon {
+  .image-hero-project2 {
     position: static;
     height: 500px;
   }
@@ -1715,12 +1715,12 @@ html.w-mod-js *[data-ix="modal-interaction"] {
     background-size: cover;
   }
   .link-case-mobile.two {
-    background-image: url('../images/decathlon.png');
+    background-image: url('../images/project2.png');
     background-position: 50% 50%;
     background-size: cover;
   }
   .link-case-mobile.four {
-    background-image: url('../images/eventoxtra-header.jpg');
+    background-image: url('../images/project3-header.jpg');
     background-position: 50% 50%;
     background-size: cover;
   }
@@ -1855,7 +1855,7 @@ html.w-mod-js *[data-ix="modal-interaction"] {
   .thumb-full.project15 {
     background-size: 120%;
   }
-  .thumb-full.decathlon1 {
+  .thumb-full.project21 {
     background-position: 50% 50%;
   }
   .footer-section {
@@ -2048,7 +2048,7 @@ html.w-mod-js *[data-ix="modal-interaction"] {
     width: 90%;
     height: 250px;
   }
-  .images-full.elflako7 {
+  .images-full.project47 {
     border-radius: 0px;
   }
   .images-full.xtra9 {
@@ -2068,10 +2068,10 @@ html.w-mod-js *[data-ix="modal-interaction"] {
   .thumb-full.elfako1 {
     border-radius: 0px;
   }
-  .thumb-full.elflako2 {
+  .thumb-full.project42 {
     border-radius: 0px;
   }
-  .thumb-full.elflako4 {
+  .thumb-full.project44 {
     border-radius: 0px;
   }
   .thumb-full.project11 {
@@ -2088,27 +2088,27 @@ html.w-mod-js *[data-ix="modal-interaction"] {
   .thumb-full.project16 {
     border-radius: 0px;
   }
-  .thumb-full.decathlon5 {
+  .thumb-full.project25 {
     border-radius: 0px;
   }
-  .thumb-full.decathlon6 {
+  .thumb-full.project26 {
     border-radius: 0px;
   }
-  .thumb-full.decathlon1 {
+  .thumb-full.project21 {
     border-radius: 0px;
     background-position: 50% 0px;
     background-size: 108%;
   }
-  .thumb-full.decathlon2 {
+  .thumb-full.project22 {
     background-position: 50% 50%;
   }
-  .thumb-full.decathlon3 {
+  .thumb-full.project23 {
     background-size: cover;
   }
-  .thumb-full.elflako5 {
+  .thumb-full.project45 {
     border-radius: 0px;
   }
-  .thumb-full.elflako6 {
+  .thumb-full.project46 {
     border-radius: 0px;
   }
   .thumb-full.hdb4 {
