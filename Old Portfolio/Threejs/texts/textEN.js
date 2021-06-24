@@ -1,5 +1,5 @@
 const otherEN = {
-  cvLink: "./documents/CV_Rachet_Guillaume_EN.pdf",
+  cvLink: "./documents/resume_rachet_guillaume_EN.pdf",
   commandPanel: "Mute : M \n  Move : ← ↑ → ↓",
 
   hireMe: {

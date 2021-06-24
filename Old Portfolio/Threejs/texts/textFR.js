@@ -1,5 +1,5 @@
 const otherFR = {
-  cvLink: "./documents/CV_Rachet_Guillaume_FR.pdf",
+  cvLink: "./documents/resume_rachet_guillaume_FR.pdf",
   commandPanel: "Couper le son : M \n  Se deplacer : ← ↑ → ↓",
 
   hireMe: {
