@@ -130,7 +130,7 @@ const cvEN = {
     2018: {
       name: "Professional license in web/mobile development",
       date: "2018 - 2019",
-      description: "ETGL AFTI Orsay"
+      description: "ETGL AFORP Orsay"
     },
     2017: {
       name: "DUT Computer Science",
@@ -211,7 +211,7 @@ const cvEN = {
       name: ["Independent Contractor | Parachute rigger", "Internship 2 months | Worker | BAB TP"],
       date: "2015",
       description: [
-        "Tandem parachute rigger at the airport Biarritz",
+        "Tandem parachute rigger at Biarritz airport",
         "Burial of gas, water, electricity and telecoms networks",
       ]
     },
