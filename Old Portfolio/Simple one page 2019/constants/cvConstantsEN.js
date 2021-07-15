@@ -44,31 +44,31 @@ export default {
   company: {
     2020: {
       name: [
-        "Apprenticeship | React.js | Nokia",
+        "Apprenticeship | ReactJS | Nokia",
       ],
       date: "2020",
       description: [
-        "Apprenticeship 3weeks/month at Nokia, powerpoint course generation web platform in React.js",
+        "Apprenticeship 3weeks/month at Nokia, powerpoint course generation web platform in ReactJS",
       ]
     },
     2019: {
       name: [
-        "Apprenticeship | React.js | Nokia",
+        "Apprenticeship | ReactJS | Nokia",
       ],
       date: "2019",
       description: [
-        "Apprenticeship 3weeks/month at Nokia, powerpoint course generation web platform in React.js",
+        "Apprenticeship 3weeks/month at Nokia, powerpoint course generation web platform in ReactJS",
       ]
     },
     2018: {
       name: [
-        "Apprenticeship | React.js | Nokia",
+        "Apprenticeship | ReactJS | Nokia",
         "Internship 2 mois | React Native | Tuddl",
         "Freelance | React Native | Hitec"
       ],
       date: "2018",
       description: [
-        "Apprenticeship 3d/week at Nokia, powerpoint course generation platform in React.js",
+        "Apprenticeship 3d/week at Nokia, powerpoint course generation platform in ReactJS",
         "Development of a multi-support social network in react native",
         "Development of a multi-support application about linearization of a tank in react native"
       ]

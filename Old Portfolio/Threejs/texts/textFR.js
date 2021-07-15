@@ -160,31 +160,31 @@ const cvFR = {
   company: {
     2020: {
       name: [
-        "Alternance | React.js | Nokia",
+        "Alternance | ReactJS | Nokia",
       ],
       date: "2020",
       description: [
-        "Alternance 3 sem/mois à Nokia, plateforme web de génération de cours powerpoint en React.js",
+        "Alternance 3 sem/mois à Nokia, plateforme web de génération de cours powerpoint en ReactJS",
       ]
     },
     2019: {
       name: [
-        "Alternance | React.js | Nokia",
+        "Alternance | ReactJS | Nokia",
       ],
       date: "2019",
       description: [
-        "Alternance 3 sem/mois à Nokia, plateforme web de génération de cours powerpoint en React.js",
+        "Alternance 3 sem/mois à Nokia, plateforme web de génération de cours powerpoint en ReactJS",
       ]
     },
     2018: {
       name: [
-        "Alternance | React.js | Nokia",
+        "Alternance | ReactJS | Nokia",
         "Stage 2 mois | React Native | Tuddl",
         "Freelance | React Native | Hitec"
       ],
       date: "2018",
       description: [
-        "Alternance 3j/semaine à Nokia, plateforme web de génération de cours powerpoint en React.js",
+        "Alternance 3j/semaine à Nokia, plateforme web de génération de cours powerpoint en ReactJS",
         "Developpement d'un réseau social multi-support en react native",
         "Developpement d'une application multi-support en react native de linéarisation d'une cuve"
       ]
